@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map and Sets</title>
+</head>
+<body>
+    <pre>
+        <b>
+            Q1. "Problem:
+            You are given a string (STR) of length N, consisting of only the lower case English alphabet.
+            Your task is to remove all the duplicate occurrences of characters in the string.
+            
+            Input:
+            abcadeecfb
+            
+            Output:
+            abcdef"
+        </b>
+    </pre>
+
+    <pre>
+        Solution:
+        
+        function removeDuplicates(N) {
+            const seta = new Set();
+            let result = "";
+            for (let i = 0; i < N.length; i++) {
+                const setb = N.charAt(i);
+                seta.add(setb);
+            }
+            result = Array.from(seta).join("");
+            return result;
+        }
+        var finalResult = removeDuplicates("abcadeecfb");
+        console.log(finalResult);
+    </pre>
+
+
+    <pre>
+        <b>
+            Q2. "Problem:
+            You are given a string (STR) of length N, you have to print the count of all alphabet.(using maps)
+            
+            Input:
+            abcadeecfb
+            
+            Output:
+            a=2
+            b=2
+            c=2
+            d=1
+            e=2
+            f=1"
+        </b>
+    </pre>
+
+    <pre>
+        Solution:
+
+        let letters = "abcadeecfb";
+
+        function count(str){
+
+            let lettermap = new Map();
+
+            for (let char of str){
+                if(lettermap.has(char)){
+                    lettermap.set(char,lettermap.get(char)+1)
+                }
+                else{
+                    lettermap.set(char,1)
+                }
+            }
+            //console.log(lettermap)
+            const allKeys = Array.from(lettermap.keys())
+            for(let key of allKeys){
+                console.log(key+'='+lettermap.get(key))
+            }
+        }
+        count(letters)
+        
+    </pre>
+</body>
+</html>
